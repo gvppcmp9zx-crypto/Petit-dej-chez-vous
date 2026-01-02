@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Petit Déjeuner Chez Vous</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brown:#7a4a2e;
+  --cream:#fff7ec;
+  --gold:#d9a441;
+  --dark:#2b1b12;
+  --shadow:0 20px 40px rgba(0,0,0,.15);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, sans-serif;
+  background:var(--cream);
+  color:var(--dark);
+}
+
+/* HERO */
+header{
+  background:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    url("https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
+  color:#fff;
+  padding:84px 20px;
+  text-align:center;
+}
+header h1{
+  font-family:"Playfair Display", serif;
+  font-size:clamp(2rem, 5vw, 3.2rem);
+  margin:0 0 10px;
+}
+header p{
+  font-size:1.1rem;
+  max-width:720px;
+  margin:0 auto;
+  opacity:.95;
+}
+
+/* LAYOUT */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:56px 20px;
+}
+
+h2{
+  font-family:"Playfair Display", serif;
+  margin:0 0 18px;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+.product{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.06);
+}
+.product img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+.product-content{ padding:18px 18px 20px; }
+.product h3{
+  font-family:"Playfair Display", serif;
+  margin:0;
+  font-size:1.25rem;
+}
+.price{
+  color:var(--gold);
+  font-weight:700;
+  margin:8px 0 12px;
+}
+.desc{
+  margin:0 0 14px;
+  color:rgba(43,27,18,.75);
+  font-size:.95rem;
+  line-height:1.35;
+}
+button{
+  width:100%;
+  padding:12px 14px;
+  border:0;
+  border-radius:999px;
+  background:var(--brown);
+  color:#fff;
+  font-size:1rem;
+  cursor:pointer;
+  font-weight:700;
+}
+button:hover{ background:#5e3823; }
+
+/* CART */
+#cart{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:340px;
+  max-width:92vw;
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:0 26px 60px rgba(0,0,0,.22);
+  padding:16px;
+  border:1px solid rgba(0,0,0,.08);
+}
+#cart h4{
+  margin:0 0 10px;
+  font-family:"Playfair Display", serif;
+  font-size:1.2rem;
+}
+.cart-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 10px;
+  border-radius:14px;
+  background:rgba(0,0,0,.03);
+  margin-bottom:8px;
+}
+.cart-left{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.cart-name{ font-weight:700; }
+.cart-meta{ font-size:.9rem; color:rgba(43,27,18,.7); }
+.cart-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.small{
+  width:auto;
+  padding:8px 10px;
+  border-radius:999px;
+  font-weight:700;
+  background:rgba(0,0,0,.06);
+  color:var(--dark);
+}
+.small:hover{ background:rgba(0,0,0,.10); }
+
+.total{
+  font-weight:800;
+  margin:10px 0 12px;
+  display:flex;
+  justify-content:space-between;
+}
+
+input{
+  width:100%;
+  padding:10px 12px;
+  margin:6px 0;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.18);
+  font:inherit;
+}
+
+#status{
+  margin-top:10px;
+  font-size:.92rem;
+  color:rgba(43,27,18,.75);
+  min-height:18px;
+}
+
+footer{
+  background:#2b1b12;
+  color:#f5e9dc;
+  text-align:center;
+  padding:28px 20px;
+  font-size:.95rem;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Des viennoiseries chaudes, chez vous</h1>
+  <p>Croissants et pains au chocolat artisanaux livrés à domicile pour un petit-déjeuner parfait.
+     Réveillez-vous… on s’occupe du reste.</p>
+</header>
+
+<section>
+  <h2>Notre sélection du matin</h2>
+
+  <div class="products">
+    <div class="product">
+      <img alt="Croissant" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1600&q=80">
+      <div class="product-content">
+        <h3>Croissant pur beurre</h3>
+        <div class="price">1,40 €</div>
+        <p class="desc">Feuilletage croustillant, cœur fondant. Le classique du matin.</p>
+        <button data-name="Croissant" data-price="1.4">Ajouter</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img alt="Pain au chocolat" src="https://images.unsplash.com/photo-1586449480533-5b9f1a0d0d2f?auto=format&fit=crop&w=1600&q=80">
+      <div class="product-content">
+        <h3>Pain au chocolat</h3>
+        <div class="price">1,60 €</div>
+        <p class="desc">Deux barres de chocolat, pur beurre. Imparable avec un café.</p>
+        <button data-name="Pain au chocolat" data-price="1.6">Ajouter</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img alt="Chausson" src="https://images.unsplash.com/photo-1512058564366-c9e3e0464b4a?auto=format&fit=crop&w=1600&q=80">
+      <div class="product-content">
+        <h3>Chausson aux pommes</h3>
+        <div class="price">2,20 €</div>
+        <p class="desc">Compote généreuse, doré au four. Parfait pour les gourmands.</p>
+        <button data-name="Chausson" data-price="2.2">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="cart" aria-label="Panier">
+  <h4>Votre petit déjeuner</h4>
+
+  <div id="items"></div>
+
+  <div class="total">
+    <span>Total</span>
+    <span id="total">0,00 €</span>
+  </div>
+
+  <input id="name" placeholder="Votre nom *" />
+  <input id="address" placeholder="Adresse de livraison *" />
+  <input id="phone" placeholder="Téléphone *" />
+
+  <button id="orderBtn">Commander pour demain matin</button>
+  <div id="status"></div>
+</div>
+
+<footer>
+  Livraison à domicile entre 7h et 10h · Fait chaque matin · Pur beurre
+</footer>
+
+<script>
+(() => {
+  const itemsEl = document.getElementById("items");
+  const totalEl = document.getElementById("total");
+  const statusEl = document.getElementById("status");
+
+  const nameEl = document.getElementById("name");
+  const addressEl = document.getElementById("address");
+  const phoneEl = document.getElementById("phone");
+  const orderBtn = document.getElementById("orderBtn");
+
+  const cart = []; // {name, price}
+
+  const formatEUR = (n) =>
+    new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(n);
+
+  function computeTotal() {
+    return Math.round(cart.reduce((s, it) => s + it.price, 0) * 100) / 100;
+  }
+
+  function render() {
+    itemsEl.innerHTML = "";
+
+    if (cart.length === 0) {
+      itemsEl.innerHTML = `<div style="color:rgba(43,27,18,.7); padding:8px 0;">Votre panier est vide.</div>`;
+    } else {
+      cart.forEach((it, idx) => {
+        const row = document.createElement("div");
+        row.className = "cart-item";
+        row.innerHTML = `
+          <div class="cart-left">
+            <div class="cart-name">${it.name}</div>
+            <div class="cart-meta">${formatEUR(it.price)}</div>
+          </div>
+          <div class="cart-actions">
+            <button class="small" data-remove="${idx}" title="Retirer">Retirer</button>
+          </div>
+        `;
+        itemsEl.appendChild(row);
+      });
+    }
+
+    totalEl.textContent = formatEUR(computeTotal());
+  }
+
+  function addItem(name, price) {
+    cart.push({ name, price: Number(price) });
+    statusEl.textContent = "";
+    render();
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    render();
+  }
+
+  document.querySelectorAll("button[data-name]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      addItem(btn.dataset.name, btn.dataset.price);
+    });
+  });
+
+  itemsEl.addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-remove]");
+    if (!b) return;
+    removeItem(Number(b.dataset.remove));
+  });
+
+  orderBtn.addEventListener("click", () => {
+    statusEl.textContent = "";
+
+    if (cart.length === 0) {
+      statusEl.textContent = "Ajoutez au moins une viennoiserie 🙂";
+      return;
+    }
+
+    if (!nameEl.value.trim() || !addressEl.value.trim() || !phoneEl.value.trim()) {
+      statusEl.textContent = "Merci de renseigner nom, adresse et téléphone.";
+      return;
+    }
+
+    // Démo : ici on simule l’envoi.
+    // Pour du “vrai”, on branchera un backend / email / WhatsApp / Stripe.
+    const recap = cart.map(x => x.name).join(", ");
+    statusEl.textContent = `✅ Commande prise en compte : ${recap}. Total ${formatEUR(computeTotal())}.`;
+
+    // Reset
+    cart.length = 0;
+    render();
+    nameEl.value = "";
+    addressEl.value = "";
+    phoneEl.value = "";
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
